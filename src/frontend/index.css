@@ -1,0 +1,147 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Playfair Display";
+  src: url("/assets/fonts/PlayfairDisplay-Variable.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Satoshi";
+  src: url("/assets/fonts/Satoshi-Variable.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    --radius: 0.5rem;
+
+    /* Cream white background */
+    --background: 0.985 0.005 90;
+    --foreground: 0.18 0.02 50;
+
+    /* Card - bright white */
+    --card: 1 0 0;
+    --card-foreground: 0.18 0.02 50;
+
+    /* Popover */
+    --popover: 1 0 0;
+    --popover-foreground: 0.18 0.02 50;
+
+    /* Forest green primary */
+    --primary: 0.32 0.09 155;
+    --primary-foreground: 0.98 0 0;
+
+    /* Champagne / light secondary */
+    --secondary: 0.95 0.015 75;
+    --secondary-foreground: 0.25 0.04 155;
+
+    /* Muted */
+    --muted: 0.94 0.008 80;
+    --muted-foreground: 0.52 0.02 80;
+
+    /* Gold accent */
+    --accent: 0.78 0.12 82;
+    --accent-foreground: 0.15 0.04 50;
+
+    /* Destructive red */
+    --destructive: 0.56 0.22 25;
+    --destructive-foreground: 0.99 0 0;
+
+    /* Borders */
+    --border: 0.88 0.01 80;
+    --input: 0.90 0.01 80;
+    --ring: 0.32 0.09 155;
+
+    /* Success */
+    --success: 0.50 0.13 155;
+    --success-foreground: 0.98 0 0;
+
+    /* Warning */
+    --warning: 0.78 0.15 65;
+    --warning-foreground: 0.15 0.04 50;
+
+    /* Charts */
+    --chart-1: 0.32 0.09 155;
+    --chart-2: 0.78 0.12 82;
+    --chart-3: 0.56 0.22 25;
+    --chart-4: 0.50 0.13 220;
+    --chart-5: 0.65 0.14 300;
+
+    /* Sidebar - dark forest green */
+    --sidebar: 0.22 0.07 155;
+    --sidebar-foreground: 0.92 0.02 155;
+    --sidebar-primary: 0.78 0.12 82;
+    --sidebar-primary-foreground: 0.15 0.04 50;
+    --sidebar-accent: 0.28 0.08 155;
+    --sidebar-accent-foreground: 0.92 0.02 155;
+    --sidebar-border: 0.30 0.06 155;
+    --sidebar-ring: 0.78 0.12 82;
+  }
+
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Satoshi", sans-serif;
+  }
+
+  h1, h2, h3, .font-display {
+    font-family: "Playfair Display", serif;
+  }
+}
+
+@layer utilities {
+  .sidebar-texture {
+    background-image: 
+      repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 2px,
+        oklch(1 0 0 / 0.02) 2px,
+        oklch(1 0 0 / 0.02) 4px
+      );
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .nav-item-active {
+    background: oklch(var(--sidebar-accent));
+    color: oklch(var(--sidebar-accent-foreground));
+    border-left: 3px solid oklch(var(--sidebar-primary));
+  }
+
+  .nav-item {
+    border-left: 3px solid transparent;
+  }
+
+  .kpi-card-accent-green {
+    border-left: 4px solid oklch(0.50 0.13 155);
+  }
+
+  .kpi-card-accent-gold {
+    border-left: 4px solid oklch(0.78 0.12 82);
+  }
+
+  .kpi-card-accent-blue {
+    border-left: 4px solid oklch(0.55 0.14 220);
+  }
+
+  .kpi-card-accent-red {
+    border-left: 4px solid oklch(0.56 0.22 25);
+  }
+
+  .stage-pill {
+    @apply inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-xs font-medium;
+  }
+}
